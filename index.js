@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const redis = require('redis');
+const cors = require('cors');
 const {
   MONGO_USER,
   MONGO_PASSWORD,
@@ -27,6 +28,10 @@ const port = process.env.PORT || 3000;
 
 const app = express();
 
+app.enable('trust proxy');
+
+app.use(cors({}));
+
 app.use(
   session({
     store: new RedisStore({ client: redisClient }),
@@ -43,7 +48,8 @@ app.use(
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
+app.get('/api/v1', (req, res) => {
+  console.log('[GET] - /api/v1');
   res.send(`
   <h2>Hello World!<h2>
   <h4>App listening on port ${port}...</h4>

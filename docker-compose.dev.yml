@@ -14,3 +14,6 @@ services:
       - MONGO_PASSWORD=mypassword
       - SESSION_SECRET=s3cret
     command: npm run dev
+  nginx:
+    ports:
+      - '3000:80'
