@@ -8,6 +8,8 @@ const signUp = async (req, res, next) => {
 
     const newUser = await User.create({ username, password: hashPassword });
 
+    req.session.user = newUser;
+
     res.status(201).json({
       status: 'succes',
       data: { user: newUser },
@@ -38,6 +40,8 @@ const logIn = async (req, res, next) => {
         message: 'Incorrect username or password',
       });
     }
+
+    req.session.user = user;
 
     res.status(200).json({
       status: 'succes',
