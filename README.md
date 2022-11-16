@@ -1,3 +1,5 @@
+# Docker Commands
+
 The docker build command builds Docker images from a Dockerfile and a “context”.
 
 ```
@@ -70,6 +72,8 @@ docker compose-up [OPTIONS] [SERVICE...]
 ```
 
 e.g. `docker-compose up -d --build`
+
+e.g. `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build`
 
 * `-d`: Detached mode: Run containers in the background
 * `--build`: Build images before starting containers.
