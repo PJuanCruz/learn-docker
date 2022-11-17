@@ -73,7 +73,7 @@ docker compose-up [OPTIONS] [SERVICE...]
 
 e.g. `docker-compose up -d --build`
 
-e.g. `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build`
+e.g. `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build -V --scale node-app=2`
 
 * `-d`: Detached mode: Run containers in the background
 * `--build`: Build images before starting containers.
